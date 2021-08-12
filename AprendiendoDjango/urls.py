@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# import my app whith my sees
+from miapp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", views.index, name="index"),
+    path("inicio/", views.index, name="index"),
+    path("holamundo/", views.holamundo, name="holamundo"),
+    path("pagina/", views.pagina, name="pagina"),
+    path("contacto/", views.contacto, name="contacto"),
+    path("contacto/<str:nombre>/", views.contacto, name="contacto"),
+    path("contacto/<str:nombre>/<str:apellidos>/", views.contacto, name="contacto"),
 ]
